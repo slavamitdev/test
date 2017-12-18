@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>Tasks manager</title>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="task_manager.js"></script>
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="tasks-list-inner-wrap">
+				<div class="status-wrap bg_blue2">
+					<h2 class="f_light1 align1">Новые</h2>
+					<div id="new-tasks" class="status-inner-wrap"></div>
+					<div class="add-task-wrap bg_blue3 f_light1 add_button align1">
+						<span onclick="ShowForm('new')">Добавить задачу</span>
+					</div>
+				</div>
+				<div class="status-wrap bg_blue2">
+					<h2 class="f_light1 align1">В работе</h2>
+					<div id="current-tasks" class="status-inner-wrap"></div>
+				</div>
+				<div class="status-wrap bg_blue2">
+					<h2 class="f_light1 align1">Завершенные</h2>
+					<div id="completed-tasks" class="status-inner-wrap"></div>
+				</div>
+			</div>
+			
+			<div class="tasks-form-wrap bg_blue1">
+				<div class="tasks-form-innerwrap">
+					<span class="cancel" onclick="HideForm()">Отменить</span>
+					<form name="tasks_form" action="" onsubmit="taskManager.init(event)">
+						<p>
+							<label>
+								Название задачи<span class="f_red1">*</span>:<br /> <input name="task_name" />
+							</label>
+						</p>
+						<p>
+							<label>
+								Описание задачи:<br /> <textarea name="task_description"></textarea>
+							</label>
+						</p>
+						<input type="hidden" name="action_type" value="" />
+						<button class="f_light1 bg_green2" type="submit" name="task_submit">Сохранить</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
